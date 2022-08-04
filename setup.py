@@ -11,7 +11,7 @@ setup(
     version=version,
     description='Frappe select control that supports options group.',
     author='Ameen Ahmed (Level Up)',
-    author_email='levelupye@gmail.com, kid1194@gmail.com',
+    author_email='kid1194@gmail.com',
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
