@@ -1,7 +1,10 @@
 # Frappe Better Select Control
 A small plugin for Frappe that adds the support of options group `<optgroup>` to the select control.
 
-### Installation Steps
+### Requirements
+- Frappe >= v13.0.0
+
+### Installation
 1. **Get the plugin from Github** *(Required only once)*
 
 `bench get-app https://github.com/kid1194/frappe-better-select-control`
@@ -13,13 +16,26 @@ A small plugin for Frappe that adds the support of options group `<optgroup>` to
 3. **Check the usage section below**
 
 ---
+<details>
+  <summary>Update the plugin for any instance/site you want</summary>
 
-4. **Uninstall the plugin from any instance/site you want**
+- Go to the app directory (frappe-bench/apps/frappe_better_select_control) and execute:
+
+`git pull`
+- Go back to the frappe-bench directory and execute:
+
+`bench --site [sitename] migrate`
+- *In case you need to restart bench, execute:*
+
+`bench restart`
+</details>
+<details>
+  <summary>Uninstall the plugin from any instance/site you want</summary>
 
 `bench --site [sitename] uninstall-app frappe_better_select_control`
 
 `bench remove-app frappe_better_select_control`
-
+</details>
 
 ### Usage
 1. Go to Customization > Customize Form
@@ -28,7 +44,9 @@ A small plugin for Frappe that adds the support of options group `<optgroup>` to
 4. In the `options` property of the fields, add a hashtag `#` before the option text to make it a group label
 5. To close a group just add a single hashtag `#` in a new line or after `\n`
 #### Example 1
-- Options:
+<details>
+  <summary>Options</summary>
+
 ```
 One
 Two
@@ -40,7 +58,10 @@ Five
 ```
 One\nTwo\n#Three\nFour\nFive
 ```
-- HTML:
+</details>
+<details>
+  <summary>HTML</summary>
+
 ```
 <option value="One">One</option>
 <option value="Two">Two</option>
@@ -49,8 +70,12 @@ One\nTwo\n#Three\nFour\nFive
     <option value="Five">Five</option>
 </optgroup>
 ```
+</details>
+
 #### Example 2
-- Options:
+<details>
+  <summary>Options</summary>
+
 ```
 #One
 Two
@@ -63,7 +88,10 @@ Six
 ```
 #One\nTwo\nThree\n#Four\nFive\nSix
 ```
-- HTML:
+</details>
+<details>
+  <summary>HTML</summary>
+
 ```
 <optgroup label="One">
     <option value="Two">Two</option>
@@ -74,8 +102,12 @@ Six
     <option value="Six">Six</option>
 </optgroup>
 ```
+</details>
+
 #### Example 3
-- Options:
+<details>
+  <summary>Options</summary>
+
 ```
 One
 Two
@@ -89,7 +121,10 @@ Six
 ```
 One\nTwo\n#Three\nFour\nFive\n#\nSix
 ```
-- HTML:
+</details>
+<details>
+  <summary>HTML</summary>
+
 ```
 <option value="One">One</option>
 <option value="Two">Two</option>
@@ -99,6 +134,7 @@ One\nTwo\n#Three\nFour\nFive\n#\nSix
 </optgroup>
 <option value="Six">Six</option>
 ```
+</details>
 
 #### License
 MIT
