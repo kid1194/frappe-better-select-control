@@ -59,3 +59,10 @@ frappe.ui.form.add_options = function(input, options_list) {
 	$select.trigger('select-change');
 	return $select;
 };
+(function($) {
+    if ($.fn.add_options != null) {
+        $.fn.add_options = function(options_list) {
+            return frappe.ui.form.add_options(this, options_list);
+        };
+    }
+})(jQuery);
