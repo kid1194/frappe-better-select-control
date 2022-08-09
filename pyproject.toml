@@ -13,5 +13,5 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/kid1194/frappe_better_select_control"
-Source = "https://github.com/kid1194/frappe_better_select_control"
+Documentation = "https://github.com/kid1194/frappe-better-select-control"
+Source = "https://github.com/kid1194/frappe-better-select-control"
