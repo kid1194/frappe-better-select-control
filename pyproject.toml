@@ -1,13 +1,12 @@
 [project]
 name = "frappe_better_select_control"
-version = "1.1.1"
+version = "1.1.2"
 authors = [
     {name = "Ameen Ahmed (Level Up)", email = "kid1194@gmail.com"}
 ]
 description = "Frappe select control that supports options group."
 requires-python = ">=3.6"
 readme = "README.md"
-license = "MIT"
 dependencies = [
     "frappe >=13.0.0"
 ]
