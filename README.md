@@ -1,52 +1,88 @@
 # Frappe Better Select Control
 A small plugin for Frappe that adds the support of options group `<optgroup>` to the select control.
 
+### Table of Contents
+<ul>
+    <li><a href="#requirements">Requirements</a></li>
+    <li>
+        <a href="#setup">Setup</a>
+        <ul>
+            <li><a href="#install">Install</a></li>
+            <li><a href="#update">Update</a></li>
+            <li><a href="#uninstall">Uninstall</a></li>
+        </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li>
+        <a href="#examples">Examples</a>
+        <ul>
+            <li><a href="#create-an-options-group">Create an options group</a></li>
+            <li><a href="#create-multiple-options-groups">Create multiple options groups</a></li>
+            <li><a href="#add-options-after-an-options-group">Add options after an options group</a></li>
+        </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+</ul>
+
+---
+
 ### Requirements
 - Frappe >= v13.0.0
 
-### Installation
-1. **Get the plugin from Github** *(Required only once)*
+---
 
-`bench get-app https://github.com/kid1194/frappe-better-select-control`
+### Setup
 
-2. **Install the plugin on any instance/site you want**
+#### Install
+1. Get the plugin from Github
+
+*(Required only once)*
+
+`bench get-app https://github.com/kid1194/frappe-better-better-control`
+
+2. Install the plugin on any instance/site you want
 
 `bench --site [sitename] install-app frappe_better_select_control`
 
-3. **Check the usage section below**
+3. Check the usage section below
 
----
-<details>
-  <summary>Update the plugin for any instance/site you want</summary>
-
-- Go to the app directory (frappe-bench/apps/frappe_better_select_control) and execute:
+#### Update
+1. Go to the app directory (frappe-bench/apps/frappe_better_select_control) and execute:
 
 `git pull`
-- Go back to the frappe-bench directory and execute:
+
+2. Go back to the frappe-bench directory and execute:
 
 `bench --site [sitename] migrate`
-- *In case you need to restart bench, execute:*
+
+3. *In case you need to restart bench, execute:*
 
 `bench restart`
-</details>
-<details>
-  <summary>Uninstall the plugin from any instance/site you want</summary>
+
+#### Uninstall
+1. Uninstall the plugin from the instance/site
 
 `bench --site [sitename] uninstall-app frappe_better_select_control`
 
+2. Uninstall the plugin from bench
+
 `bench remove-app frappe_better_select_control`
-</details>
+
+---
 
 ### Usage
 1. Go to Customization > Customize Form
-2. Enter the form type/name (ex: 'Journal Entry')
+2. Enter the form type/name (ex: 'Item')
 3. Scroll down to the form fields area and edit the select fields you want
 4. In the `options` property of the fields, add a hashtag `#` before the option text to make it a group label
-5. To close a group just add a single hashtag `#` in a new line or after `\n`
-#### Example 1
-<details>
-  <summary>Options</summary>
+5. To close a group just add a single hashtag `#` in a new line
 
+---
+
+### Examples
+
+#### Create an options group
+- Options:
 ```
 One
 Two
@@ -54,14 +90,7 @@ Two
 Four
 Five
 ```
---*OR*--
-```
-One\nTwo\n#Three\nFour\nFive
-```
-</details>
-<details>
-  <summary>HTML</summary>
-
+- Result HTML:
 ```
 <option value="One">One</option>
 <option value="Two">Two</option>
@@ -70,12 +99,9 @@ One\nTwo\n#Three\nFour\nFive
     <option value="Five">Five</option>
 </optgroup>
 ```
-</details>
 
-#### Example 2
-<details>
-  <summary>Options</summary>
-
+#### Create multiple options groups
+- Options:
 ```
 #One
 Two
@@ -84,14 +110,7 @@ Three
 Five
 Six
 ```
---*OR*--
-```
-#One\nTwo\nThree\n#Four\nFive\nSix
-```
-</details>
-<details>
-  <summary>HTML</summary>
-
+- Result HTML:
 ```
 <optgroup label="One">
     <option value="Two">Two</option>
@@ -102,11 +121,9 @@ Six
     <option value="Six">Six</option>
 </optgroup>
 ```
-</details>
 
-#### Example 3
-<details>
-  <summary>Options</summary>
+#### Add options after an options group
+- Options:
 
 ```
 One
@@ -117,14 +134,7 @@ Five
 #
 Six
 ```
---*OR*--
-```
-One\nTwo\n#Three\nFour\nFive\n#\nSix
-```
-</details>
-<details>
-  <summary>HTML</summary>
-
+- Result HTML:
 ```
 <option value="One">One</option>
 <option value="Two">Two</option>
@@ -134,7 +144,8 @@ One\nTwo\n#Three\nFour\nFive\n#\nSix
 </optgroup>
 <option value="Six">Six</option>
 ```
-</details>
 
-#### License
+---
+
+### License
 MIT
