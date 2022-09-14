@@ -1,6 +1,6 @@
 # Frappe Better Select Control
 
-A small plugin for Frappe that adds the support of options group **<optgroup>** to the select control.
+A small plugin for Frappe that adds the support of options group <optgroup> to the select control.
 
 ---
 
