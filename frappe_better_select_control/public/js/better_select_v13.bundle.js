@@ -1,19 +1,18 @@
 (function($) {
     $.fn.add_options = function(options_list) {
-        let $select = $(this);
-        if (!Array.isArray(options_list)) {
-            return $select;
-        }
-        var container = $select;
+        let $select = $(this),
+        container = $select;
+        if (!Array.isArray(options_list)) return $select;
+        
         for (var i = 0, j = options_list.length; i < j; i++) {
-            var v = options_list[i],
+            let v = options_list[i],
             value = null,
             label = null,
             is_group = false,
             is_label_null = false,
             is_disabled = false;
             if (!is_null(v)) {
-                var is_value_null = is_null(v.value);
+                let is_value_null = is_null(v.value);
                 is_label_null = is_null(v.label);
                 is_disabled = Boolean(v.disabled);
     
@@ -34,9 +33,7 @@
                         continue;
                     }
                     is_group = true;
-                    if (is_label_null) {
-                        label = __(value);
-                    }
+                    if (is_label_null) label = __(value);
                 } else if (value[0] === '!' && value[1] === '#') {
                     value = value.substring(1);
                 }
@@ -54,14 +51,16 @@
                 .prop('disabled', is_disabled)
                 .appendTo(container.get(0));
         }
-        // select the first option
+        
         $select.get(0).selectedIndex = 0;
         $select.trigger('select-change');
         return $select;
     };
+    
     $.fn.set_working = function() {
         this.prop('disabled', true);
     };
+    
     $.fn.done_working = function() {
         this.prop('disabled', false);
     };

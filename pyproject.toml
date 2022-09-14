@@ -4,6 +4,12 @@ authors = [
     {name = "Ameen Ahmed (Level Up)", email = "kid1194@gmail.com"}
 ]
 description = "Frappe select control that supports options group."
+keywords = ["frappe", "select", "better select"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: JavaScript"
+]
 requires-python = ">=3.6"
 readme = "README.md"
 dynamic = ["version"]

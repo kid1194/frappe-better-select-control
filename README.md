@@ -1,5 +1,8 @@
 # Frappe Better Select Control
+
 A small plugin for Frappe that adds the support of options group `<optgroup>` to the select control.
+
+---
 
 ### Table of Contents
 <ul>
@@ -16,9 +19,9 @@ A small plugin for Frappe that adds the support of options group `<optgroup>` to
     <li>
         <a href="#examples">Examples</a>
         <ul>
-            <li><a href="#create-an-options-group">Create an options group</a></li>
-            <li><a href="#create-multiple-options-groups">Create multiple options groups</a></li>
-            <li><a href="#add-options-after-an-options-group">Add options after an options group</a></li>
+            <li><a href="#single-options-group">Single Options Group</a></li>
+            <li><a href="#multiple-options-groups">Multiple Options Groups</a></li>
+            <li><a href="#normal-options-after-options-group">Normal Options After Options group</a></li>
         </ul>
     </li>
     <li><a href="#license">License</a></li>
@@ -33,55 +36,117 @@ A small plugin for Frappe that adds the support of options group `<optgroup>` to
 
 ### Setup
 
+⚠️ *Important* ⚠️
+
+*Do not forget to replace [sitename] with the name of your site in all commands.*
+
 #### Install
-1. Get the plugin from Github
+1. Go to bench directory
+
+```
+cd ~/frappe-bench
+```
+
+2. Get plugin from Github
 
 *(Required only once)*
 
-`bench get-app https://github.com/kid1194/frappe-better-better-control`
+```
+bench get-app https://github.com/kid1194/frappe-better-select-control
+```
 
-2. Install the plugin on any instance/site you want
+3. Build plugin
 
-`bench --site [sitename] install-app frappe_better_select_control`
+*(Required only once)*
 
-3. Check the usage section below
+```
+bench build --apps frappe_better_select_control
+```
+
+4. Install plugin on a specific site
+
+```
+bench --site [sitename] install-app frappe_better_select_control
+```
+
+5. Check the usage section below
 
 #### Update
-1. Go to the app directory (frappe-bench/apps/frappe_better_select_control) and execute:
+1. Go to app directory
 
-`git pull`
+```
+cd ~/frappe-bench/apps/frappe_better_select_control
+```
 
-2. Go back to the frappe-bench directory and execute:
+2. Get updates from Github
 
-`bench --site [sitename] migrate`
+```
+git pull
+```
 
-3. *In case you need to restart bench, execute:*
+3. Go to bench directory
 
-`bench restart`
+```
+cd ~/frappe-bench
+```
+
+4. Build plugin
+
+```
+bench build --apps frappe_better_select_control
+```
+
+5. Update a specific site
+
+```
+bench --site [sitename] migrate
+```
+
+6. Restart bench
+
+```
+bench restart
+```
 
 #### Uninstall
-1. Uninstall the plugin from the instance/site
+1. Go to bench directory
 
-`bench --site [sitename] uninstall-app frappe_better_select_control`
+```
+cd ~/frappe-bench
+```
 
-2. Uninstall the plugin from bench
+2. Uninstall plugin from a specific site
 
-`bench remove-app frappe_better_select_control`
+```
+bench --site [sitename] uninstall-app frappe_better_select_control
+```
+
+3. Remove plugin from bench
+
+```
+bench remove-app frappe_better_select_control
+```
+
+4. Restart bench
+
+```
+bench restart
+```
 
 ---
 
 ### Usage
 1. Go to Customization > Customize Form
-2. Enter the form type/name (ex: 'Item')
+2. Enter the form type/name (ex: 'User')
 3. Scroll down to the form fields area and edit the select fields you want
-4. In the `options` property of the fields, add a hashtag `#` before the option text to make it a group label
-5. To close a group just add a single hashtag `#` in a new line
+4. In the *options* property of the fields, add a hashtag *#* before the option text to make it a group label
+5. To close a group just add a single hashtag *#* in a new line
 
 ---
 
 ### Examples
 
-#### Create an options group
+#### Single Options Group
 - Options:
 ```
 One
@@ -100,7 +165,7 @@ Five
 </optgroup>
 ```
 
-#### Create multiple options groups
+#### Multiple Options Groups
 - Options:
 ```
 #One
@@ -122,7 +187,7 @@ Six
 </optgroup>
 ```
 
-#### Add options after an options group
+#### Normal Options After Options group
 - Options:
 
 ```
