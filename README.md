@@ -5,27 +5,18 @@ A small plugin for Frappe that adds the support of options group <optgroup> to t
 ---
 
 ### Table of Contents
-<ul>
-    <li><a href="#requirements">Requirements</a></li>
-    <li>
-        <a href="#setup">Setup</a>
-        <ul>
-            <li><a href="#install">Install</a></li>
-            <li><a href="#update">Update</a></li>
-            <li><a href="#uninstall">Uninstall</a></li>
-        </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li>
-        <a href="#examples">Examples</a>
-        <ul>
-            <li><a href="#single-options-group">Single Options Group</a></li>
-            <li><a href="#multiple-options-groups">Multiple Options Groups</a></li>
-            <li><a href="#normal-options-after-options-group">Normal Options After Options group</a></li>
-        </ul>
-    </li>
-    <li><a href="#license">License</a></li>
-</ul>
+- [Requirements](#requirements)
+- [Setup](#setup)
+  - [Install](#install)
+  - [Update](#update)
+  - [Uninstall](#uninstall)
+- [Usage](#usage)
+- [Examples](#examples)
+  - [Single Options Group](#single-options-group)
+  - [Multiple Options Group](#multiple-options-groups)
+  - [Normal Options After Options group](#normal-options-after-options-group)
+- [Issues](#issues)
+- [License](#license)
 
 ---
 
@@ -60,7 +51,7 @@ bench get-app https://github.com/kid1194/frappe-better-select-control
 *(Required only once)*
 
 ```
-bench build --apps frappe_better_select_control
+bench build --app frappe_better_select_control
 ```
 
 4. Install plugin on a specific site
@@ -69,7 +60,7 @@ bench build --apps frappe_better_select_control
 bench --site [sitename] install-app frappe_better_select_control
 ```
 
-5. Check the usage section below
+5. Check the [usage](#usage) & [examples](#examples) below
 
 #### Update
 1. Go to app directory
@@ -93,7 +84,7 @@ cd ~/frappe-bench
 4. Build plugin
 
 ```
-bench build --apps frappe_better_select_control
+bench build --app frappe_better_select_control
 ```
 
 5. Update a specific site
@@ -102,7 +93,7 @@ bench build --apps frappe_better_select_control
 bench --site [sitename] migrate
 ```
 
-6. Restart bench
+6. (Optional) Restart bench
 
 ```
 bench restart
@@ -127,7 +118,7 @@ bench --site [sitename] uninstall-app frappe_better_select_control
 bench remove-app frappe_better_select_control
 ```
 
-4. Restart bench
+4. (Optional) Restart bench
 
 ```
 bench restart
@@ -141,6 +132,9 @@ bench restart
 3. Scroll down to the form fields area and edit the select fields you want
 4. In the *options* property of the fields, add a hashtag *#* before the option text to make it a group label
 5. To close a group just add a single hashtag *#* in a new line
+6. Add an exclamation mark *!* before a hashtag *#* at the beginning of the option text to stop it from being used as a group label
+
+ℹ️ **Note: You can't modify the original fields of a doctype, so create a new field or clone and modify the entire doctype.**
 
 ---
 
@@ -209,6 +203,11 @@ Six
 </optgroup>
 <option value="Six">Six</option>
 ```
+
+---
+
+### Issues
+If you find bug in the plugin, please create a [bug report](https://github.com/kid1194/frappe-better-select-control/issues/new?assignees=kid1194&labels=bug&template=bug_report.md&title=%5BBUG%5D) and let us know about it.
 
 ---
 
