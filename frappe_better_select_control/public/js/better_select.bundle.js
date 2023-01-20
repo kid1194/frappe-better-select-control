@@ -34,7 +34,8 @@ frappe.ui.form.add_options = function(input, options_list) {
             }
         }
         
-        if (!is_null(value) && value.length) {
+        if (cstr(value).length) {
+            value = cstr(value);
             if (value[0] === '#') {
                 value = value.substring(1);
                 if (!value.length) {
