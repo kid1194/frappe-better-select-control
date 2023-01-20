@@ -1,8 +1,16 @@
+/*
+* Frappe Better Select Control © 2023
+* Author:  Ameen Ahmed
+* Company: Level Up Marketing & Software Development Services
+* Licence: Please refer to LICENSE file
+*/
+
+
 (function($) {
     $.fn.add_options = function(options_list) {
         let $select = $(this),
         container = $select;
-        if (!Array.isArray(options_list)) return $select;
+        if (!$.isArray(options_list)) return $select;
         
         for (var i = 0, j = options_list.length; i < j; i++) {
             let v = options_list[i],
@@ -25,7 +33,7 @@
                 }
             }
             
-            if (value.length) {
+            if (!is_null(value) && value.length) {
                 if (value[0] === '#') {
                     value = value.substring(1);
                     if (!value.length) {
@@ -41,7 +49,7 @@
     
             if (is_group) {
                 container = $('<optgroup>');
-                container.attr('label', label)
+                container.attr('label', cstr(label))
                     .prop('disabled', is_disabled)
                     .appendTo($select.get(0));
                 continue;

@@ -1,4 +1,7 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+# Frappe Better Select Control © 2023
+# Author:  Ameen Ahmed
+# Company: Level Up Marketing & Software Development Services
+# Licence: Please refer to LICENSE file
 
-__version__ = "1.1.5"
+
+__version__ = "1.1.6"
