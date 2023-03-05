@@ -204,6 +204,31 @@ Six
 <option value="Six">Six</option>
 ```
 
+#### Placeholder Option
+- Options:
+
+```
+$Select..
+One
+Two
+#Three
+Four
+Five
+#
+Six
+```
+- Result HTML:
+```
+<option value="" disabled hidden selected>Select...</option>
+<option value="One">One</option>
+<option value="Two">Two</option>
+<optgroup label="Three">
+    <option value="Four">Four</option>
+    <option value="Five">Five</option>
+</optgroup>
+<option value="Six">Six</option>
+```
+
 ---
 
 ### Issues
