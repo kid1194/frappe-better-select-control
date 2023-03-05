@@ -15,6 +15,7 @@ A small plugin for Frappe that adds the support of options group <optgroup> to t
   - [Single Options Group](#single-options-group)
   - [Multiple Options Group](#multiple-options-groups)
   - [Normal Options After Options group](#normal-options-after-options-group)
+  - [Placeholder Option](#placeholder-option)
 - [Issues](#issues)
 - [License](#license)
 
