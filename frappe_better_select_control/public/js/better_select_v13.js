@@ -12,10 +12,12 @@
         container = $select;
         if (!$.isArray(options_list)) return $select;
         
+        let placeholder = null;
         for (var i = 0, j = options_list.length; i < j; i++) {
             let v = options_list[i],
             value = null,
             label = null,
+            is_placeholder = false,
             is_group = false,
             is_label_null = false,
             is_disabled = false;
@@ -35,14 +37,20 @@
             
             if (cstr(value).length) {
                 value = cstr(value);
-                if (value[0] === '#') {
+                if (value[0] === '$' || value[0] === '#') {
+                    var char = value[0];
                     value = value.substring(1);
                     if (!value.length) {
                         container = $select;
                         continue;
                     }
-                    is_group = true;
+                    if (char === '$') is_placeholder = true;
+                    else is_group = true;
                     if (is_label_null) label = __(value);
+                    if (is_placeholder) {
+                        placeholder = cstr(label);
+                        continue;
+                    }
                 } else if (value[0] === '!' && value[1] === '#') {
                     value = value.substring(1);
                 }
@@ -59,6 +67,15 @@
                 .attr('value', value)
                 .prop('disabled', is_disabled)
                 .appendTo(container.get(0));
+        }
+        
+        if (placeholder) {
+            $('<option>').html(placeholder)
+                .attr('value', '')
+                .prop('disabled', true)
+                .prop('selected', true)
+                .prop('hidden', true)
+                .prependTo($select.get(0));
         }
         
         $select.get(0).selectedIndex = 0;
