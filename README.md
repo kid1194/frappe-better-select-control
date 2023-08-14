@@ -5,6 +5,7 @@ A small plugin for Frappe that adds the support of options group <optgroup> to t
 ---
 
 ### Table of Contents
+
 - [Requirements](#requirements)
 - [Setup](#setup)
   - [Install](#install)
@@ -12,9 +13,10 @@ A small plugin for Frappe that adds the support of options group <optgroup> to t
   - [Uninstall](#uninstall)
 - [Usage](#usage)
 - [Examples](#examples)
-  - [Single Options Group](#single-options-group)
-  - [Multiple Options Group](#multiple-options-groups)
-  - [Normal Options After Options group](#normal-options-after-options-group)
+  - [Single Option Group](#single-option-group)
+  - [Multiple Option Group](#multiple-option-groups)
+  - [Normal Options After Option Group](#normal-options-after-option-group)
+  - [Empty Option Group Label](#empty-option-group-label)
   - [Placeholder Option](#placeholder-option)
 - [Issues](#issues)
 - [License](#license)
@@ -22,6 +24,7 @@ A small plugin for Frappe that adds the support of options group <optgroup> to t
 ---
 
 ### Requirements
+
 - Frappe >= v13.0.0
 
 ---
@@ -128,20 +131,23 @@ bench restart
 ---
 
 ### Usage
+
 1. Go to Customization > Customize Form
 2. Enter the form type/name (ex: 'User')
 3. Scroll down to the form fields area and edit the select fields you want
-4. In the *options* property of the fields, add a hashtag *#* before the option text to make it a group label
-5. To close a group just add a single hashtag *#* in a new line
-6. Add an exclamation mark *!* before a hashtag *#* at the beginning of the option text to stop it from being used as a group label
+4. In the *options* property of the fields, add a hashtag (*#*) before the option text to make it a group label
+5. To close a group just add a single hashtag (*#*) in a new line
+6. Add an exclamation mark *!* before a hashtag (*#*) at the beginning of the option text to stop it from being used as a group label
 
-ℹ️ **Note: You can't modify the original fields of a doctype, so create a new field or clone and modify the entire doctype.**
+⚠️ **Important** ⚠️
+
+You can't modify the original fields of a doctype, so create a new field or clone and modify the entire doctype.
 
 ---
 
 ### Examples
 
-#### Single Options Group
+#### Single Option Group
 - Options:
 ```
 One
@@ -160,7 +166,7 @@ Five
 </optgroup>
 ```
 
-#### Multiple Options Groups
+#### Multiple Option Groups
 - Options:
 ```
 #One
@@ -182,7 +188,7 @@ Six
 </optgroup>
 ```
 
-#### Normal Options After Options group
+#### Normal Options After Option Group
 - Options:
 
 ```
@@ -199,6 +205,31 @@ Six
 <option value="One">One</option>
 <option value="Two">Two</option>
 <optgroup label="Three">
+    <option value="Four">Four</option>
+    <option value="Five">Five</option>
+</optgroup>
+<option value="Six">Six</option>
+```
+
+#### Empty Option Group Label
+- Options:
+
+```
+One
+Two
+#
+Three
+Four
+Five
+#
+Six
+```
+- Result HTML:
+```
+<option value="One">One</option>
+<option value="Two">Two</option>
+<optgroup label="">
+    <option value="Three">Three</option>
     <option value="Four">Four</option>
     <option value="Five">Five</option>
 </optgroup>
